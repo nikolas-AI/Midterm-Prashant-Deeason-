@@ -50,17 +50,16 @@ public class MazeGUI extends JFrame {
 							"Game over! You used all available steps!", "Level Complete",
 							JOptionPane.INFORMATION_MESSAGE);
 
-					// Optional: Disable engine to prevent movement after win
+					// Disable engine to prevent movement after game over
 					engine = null;
 					resetItem.setEnabled(false);
-				}
-				// Check for victory
-				if (engine.playerWins()) {
+					// Check for victory
+				} else if (engine.playerWins()) {
 					JOptionPane.showMessageDialog(MazeGUI.this,
 							"Congratulations! You found the exit.", "Level Complete",
 							JOptionPane.INFORMATION_MESSAGE);
 
-					// Optional: Disable engine to prevent movement after win
+					// Disable engine to prevent movement after win
 					engine = null;
 					resetItem.setEnabled(false);
 				}
