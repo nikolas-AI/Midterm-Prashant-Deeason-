@@ -31,7 +31,7 @@ public class GameEngine {
 	}
 
 	public boolean playerWins() {
-		return false;
+		return playerRow == exitRow && playerCol == exitCol;
 	}
 
 	public boolean isGameOver() {
