@@ -39,7 +39,7 @@ public class GameEngine {
 	}
 
 	private void findPlayer() {
-		for (int r = 0; r < 5; r++) {
+		for (int r = 0; r < 6; r++) {
 			for (int c = 0; c < 10; c++) {
 				if (board.getCell(r, c) == PLAYER) {
 					playerRow = r;
@@ -51,7 +51,7 @@ public class GameEngine {
 	}
 
 	private void findExit() {
-		for (int r = 0; r < 5; r++) {
+		for (int r = 0; r < 6; r++) {
 			for (int c = 0; c < 10; c++) {
 				if (board.getCell(r, c) == EXIT || board.getCell(r, c) == HIDDEN_EXIT) {
 					exitRow = r;
