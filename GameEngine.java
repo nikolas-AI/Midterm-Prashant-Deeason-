@@ -63,7 +63,14 @@ public class GameEngine {
 	}
 
 	private void removeHidden() {
-
+		for (int r = 0; r < 6; r++) {
+			for (int c = 0; c < 10; c++) {
+				int cell = board.getCell(r, c);
+				if (cell >= HIDDEN_FLOOR) {
+					board.setCell(r, c, cell - REMOVE_HIDDEN);
+				}
+			}
+		}
 	}
 
 	/**
