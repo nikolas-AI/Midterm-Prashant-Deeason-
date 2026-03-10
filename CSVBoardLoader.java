@@ -4,8 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Implements the BoardLoader interface to construct a Board by
+ * parsing a Comma-Separated Values (CSV) file.
+ */
 public class CSVBoardLoader implements BoardLoader {
 
+	/**
+	 * Loads the board data from a CSV file. The first row dictates the
+	 * maximum step count, while subsequent rows represent the grid layout.
+	 *
+	 * @param filename the relative or absolute path of the CSV file
+	 * @return a constructed Board object populated with the CSV data
+	 */
 	@Override
 	public Board load(String filename) {
 		Board board = new Board();
