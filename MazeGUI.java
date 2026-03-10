@@ -100,6 +100,7 @@ public class MazeGUI extends JFrame {
 			resetItem.setEnabled(true);
 			gamePanel.setBoard(currentBoard);
 			gamePanel.repaint();
+			infoPanel.setRemainingSteps(currentBoard.stepCounter.getRemainingSteps());
 		}
 	}
 
@@ -109,6 +110,7 @@ public class MazeGUI extends JFrame {
 			engine = new GameEngine(currentBoard);
 			gamePanel.setBoard(currentBoard);
 			gamePanel.repaint();
+			infoPanel.setRemainingSteps(currentBoard.stepCounter.getRemainingSteps());
 		}
 	}
 
