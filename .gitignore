@@ -1,0 +1,10 @@
+# Compiled class files
+out/
+
+# Temporary source directories used for local running
+src/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
