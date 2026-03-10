@@ -42,6 +42,7 @@ public class MazeGUI extends JFrame {
 					case KeyEvent.VK_RIGHT -> engine.movePlayer(0, 1);
 				}
 				gamePanel.repaint();
+				infoPanel.setRemainingSteps(currentBoard.stepCounter.getRemainingSteps());
 
 				// Check for game over
 				if (engine.isGameOver()) {
