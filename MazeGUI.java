@@ -6,6 +6,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
+/**
+ * MazeGUI provides the graphical user interface for the 16-Bit Maze game.
+ * It handles the main window, menu interactions, and keyboard input.
+ */
 public class MazeGUI extends JFrame {
 	private Board originalBoard;
 	private Board currentBoard;
@@ -15,6 +19,10 @@ public class MazeGUI extends JFrame {
 	private JMenuItem resetItem;
 	private int stepCounter;
 
+	/**
+	 * Constructs the main GUI window, initializes panels, and sets up key
+	 * listeners.
+	 */
 	public MazeGUI() {
 		setTitle("16-Bit Maze");
 		setSize(640, 480); // Adjusted for 10x5 grid with scaling
@@ -67,6 +75,10 @@ public class MazeGUI extends JFrame {
 		});
 	}
 
+	/**
+	 * Initializes the top menu bar with options for opening levels and resetting
+	 * the game.
+	 */
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu gameMenu = new JMenu("Game");
@@ -84,6 +96,10 @@ public class MazeGUI extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
+	/**
+	 * Opens a file chooser dialog to allow the user to select a CSV level file to
+	 * load.
+	 */
 	private void openFile() {
 		JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
 		int result = fileChooser.showOpenDialog(this);
@@ -104,6 +120,9 @@ public class MazeGUI extends JFrame {
 		}
 	}
 
+	/**
+	 * Resets the current level to its original state.
+	 */
 	private void resetGame() {
 		if (originalBoard != null) {
 			currentBoard = originalBoard.clone();
@@ -114,7 +133,10 @@ public class MazeGUI extends JFrame {
 		}
 	}
 
-	// Inner class for information panel
+	/**
+	 * Inner class that represents the information panel at the top,
+	 * displaying remaining steps and coins.
+	 */
 	private class InfoPanel extends JPanel {
 		private JLabel infoRemainingSteps;
 		private JLabel infoCoins;
@@ -138,7 +160,9 @@ public class MazeGUI extends JFrame {
 		}
 	}
 
-	// Inner class for custom rendering
+	/**
+	 * Inner class handling the custom 2D rendering of the maze board.
+	 */
 	private class GamePanel extends JPanel {
 		private Board board;
 		private final int TILE_SIZE = 64; // Scale up for visibility
@@ -179,6 +203,11 @@ public class MazeGUI extends JFrame {
 		}
 	}
 
+	/**
+	 * The main class to launch the Maze application.
+	 *
+	 * @param args command line arguments
+	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> new MazeGUI().setVisible(true));
 	}

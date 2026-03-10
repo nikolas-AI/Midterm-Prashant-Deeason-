@@ -1,5 +1,10 @@
 package edu.txst.midterm;
 
+/**
+ * GameEngine handles the core logic of the 16-Bit Maze game.
+ * It manages player movement, checks for win/loss conditions,
+ * and updates the board state accordingly.
+ */
 public class GameEngine {
 	private Board board;
 	private int playerRow;
@@ -24,20 +29,40 @@ public class GameEngine {
 	private static final int REMOVE_HIDDEN = 10;
 	private static final int FIRST_AID_KIT_BONUS = 10;
 
+	/**
+	 * Constructs a new GameEngine with the specified game board.
+	 * Initializes player and exit positions.
+	 *
+	 * @param board the game board
+	 */
 	public GameEngine(Board board) {
 		this.board = board;
 		findPlayer();
 		findExit();
 	}
 
+	/**
+	 * Determines if the player has reached the exit, meaning they win the game.
+	 *
+	 * @return true if the player is at the exit location, false otherwise
+	 */
 	public boolean playerWins() {
 		return playerRow == exitRow && playerCol == exitCol;
 	}
 
+	/**
+	 * Determines if the game is over due to the player running out of steps.
+	 *
+	 * @return true if remaining steps are 0, false otherwise
+	 */
 	public boolean isGameOver() {
 		return board.stepCounter.getRemainingSteps() == 0;
 	}
 
+	/**
+	 * Scans the board to find the player's starting position
+	 * and updates playerRow and playerCol.
+	 */
 	private void findPlayer() {
 		for (int r = 0; r < 6; r++) {
 			for (int c = 0; c < 10; c++) {
@@ -50,6 +75,10 @@ public class GameEngine {
 		}
 	}
 
+	/**
+	 * Scans the board to find the exit's location
+	 * and updates exitRow and exitCol.
+	 */
 	private void findExit() {
 		for (int r = 0; r < 6; r++) {
 			for (int c = 0; c < 10; c++) {
@@ -62,6 +91,10 @@ public class GameEngine {
 		}
 	}
 
+	/**
+	 * Removes the hidden attribute from all cells on the board,
+	 * effectively revealing the full map to the player.
+	 */
 	private void removeHidden() {
 		for (int r = 0; r < 6; r++) {
 			for (int c = 0; c < 10; c++) {
